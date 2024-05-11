@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+//VARIABLES
+    $font1: "Lora", serif;
+    $font2: Helvetica, Arial, sans-serif;
+    $color: #333;
+
+    @mixin align($center:center){
+        text-align: $center;
+    }
+
+
+
+body {
+    font-family: $font2;
+    color: $color;
+    margin: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+h1 {
+    font-family: $font1;
+    color: #333;
+    font-size: 3em;
+    @include align;
+
+    a {
+        color: #333;
+        
+    }
+    a:visited {
+        color: $color;
+    }
+    
+    a:hover {
+        color: $color;
+    }
+    
+    a:active {
+        color: $color;
+    }
+    
+}
+
+
+
+nav {
+    border: solid 1px  #d0d0d0;
+    border-style: solid none;
+
+    ul {
+        list-style: none;
+        @include align;
+        line-height: 2em;
+        font-family: $font1;
+        text-transform: uppercase; 
+    }
+}
+
+
+article {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.post-date {
+    font-family: $font1;
+    @include align(right);
+}
+
+.post-content {
+    border: solid 1px #d0d0d0;
+    border-style: solid none;
+
+    h2 {
+        font-family: $font1;
+    }
+    p {
+        font-weight: 700; 
+        line-height: 1.5em;
+    }   
+}
+
+figure img {
+    @include align;
+    margin: auto 0;
+}
+
+a:visited {
+    color: #666;
+}
+
+a:hover {
+    color: #00ddff;
+}
+
+a:active {
+    color: #deb887;
+}
+
+
+
+@media (min-width:960px){
+    nav ul {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 1rem;        
+    }
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+      
+    }
+    main article:nth-child(1) {
+        grid-column: 1/3;
+        grid-row: 1;
+    }
+    main article:nth-child(2) {
+        grid-column: 1/3;
+    }
+    article {
+        display: grid;
+        grid-template-columns: 1fr 3fr;  
+        border: solid 1px #d0d0d0;
+        border-style: none none solid;     
+    }
+    .post-date {
+        @include align(left);
+    }
+    .post-content {
+        border: solid 1px #d0d0d0;
+        border-style: none none none solid ;
+        padding-left: 2rem;         
+    }
+   
+}
